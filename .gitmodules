@@ -1,0 +1,9 @@
+[submodule "extern/qiskit-addon-sqd-hpc"]
+	path = extern/qiskit-addon-sqd-hpc
+	url = https://github.com/Qiskit/qiskit-addon-sqd-hpc.git
+[submodule "extern/sbd"]
+	path = extern/sbd
+	url = https://github.com/r-ccs-cms/sbd.git
+[submodule "extern/pybind11"]
+	path = extern/pybind11
+	url = https://github.com/pybind/pybind11.git

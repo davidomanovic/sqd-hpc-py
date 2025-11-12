@@ -18,9 +18,8 @@ This lets you do, from Python:
 - OpenMP
 - Python ≥ 3.9
 
-## Clone
-
-This repo uses submodules:
+## Easy installation
+This repo uses submodules
 
 ```bash
 git clone --recursive https://github.com/you/sqd-hpc-py.git
@@ -31,6 +30,24 @@ git submodule update --init --recursive
 
 Change directory into the repo and install simply:
 ```
+pip install .
+```
+
+## Installing on a HPC cluster
+The submodules work on having 32-bit LAPACK integers. Some clusters have by default BLAS/MKL that are ILP64 (64-bit ints). To ensure you have the right environment do the following:
+
+1. Load toolchain
+```
+module purge
+module load GCC/11.2.0
+module load OpenMPI/4.1.1-GCC-11.2.0
+module load FlexiBLAS/3.0.4-GCC-11.2.0
+```
+
+2. Build and install
+```
+CMAKE_PREFIX_PATH=$EBROOTFLEXIBLAS \
+CMAKE_ARGS="-DBLA_VENDOR=FlexiBLAS -DBLA_SIZEOF_INTEGER=4" \
 pip install .
 ```
 

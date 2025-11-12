@@ -1,0 +1,26 @@
+[build-system]
+requires = [
+  "scikit-build-core>=0.10",
+  "pybind11>=2.11",
+  "cmake>=3.20",
+  "ninja",
+]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "sqd-hpc-py"
+version = "0.0.1"
+description = "Python wrapper for Qiskit SQD-HPC + SBD"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+  { name = "davidomanovic" }
+]
+dependencies = [
+  # probably empty, you’re doing everything in C++
+]
+
+[tool.scikit-build]
+# this is the important bit: tell it where your python package is
+wheel.packages = ["python/sqd_hpc_py"]
+cmake.build-type = "Release"
